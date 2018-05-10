@@ -1,8 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Meldinger
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-start (click)="viewSellBook()">
+        <ion-icon name="book"></ion-icon>
+        Selg bok
+      </button>
+      <button ion-button icon-only (click)="doLogout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
-  <ion-grid>
-    <ion-row *ngFor="let room of chatRooms | async">
-      <span>Chat</span>
-      <p>{{room.lastMessage}}</p>
-    </ion-row>
-  </ion-grid>
+  <div class="list card">
+    <ion-item *ngFor="let room of chatRooms | async" (click)="viewMessage(room.id)">
+      {{room.lastMessage}}
+    </ion-item>
+  </div>
 </ion-content>

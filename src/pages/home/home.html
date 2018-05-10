@@ -4,6 +4,9 @@
       Alle bøker
     </ion-title>
     <ion-buttons end>
+      <button ion-button icon-only (click)="viewInbox()">
+        <ion-icon name="mail"></ion-icon>
+      </button>
       <button ion-button icon-start (click)="viewSellBook()">
         <ion-icon name="book"></ion-icon>
         Selg bok
@@ -21,6 +24,6 @@
       <img *ngIf="ad.imgUrl == ''" src="assets/imgs/gradient.jpeg"/>
       <div class="ad-title">{{ad.title}}</div>
       <div class="ad-price">{{ad.book.price | currency:'NOK' }}</div>
-      <div class="ad-seller">Solgt av: {{ad.seller | stripEmail}}, nær {{ad.location}}</div>
+      <div class="ad-seller">Solgt av: {{ad.seller | stripEmail}} - nær {{ad.location}}</div>
     </ion-card>
 </ion-content>

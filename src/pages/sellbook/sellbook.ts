@@ -12,6 +12,7 @@ import {HomePage} from '../home/home';
 import {LoginPage} from '../login/login';
 import {Geolocation} from '@ionic-native/geolocation';
 import {GeocodingProvider} from '../../providers/geocoding-provider';
+import {InboxPage} from "../inbox/inbox";
 
 
 @IonicPage()
@@ -156,6 +157,10 @@ export class SellBookPage {
 
   goHome() {
     this.navCtrl.push(HomePage);
+  }
+
+  viewInbox() {
+    this.navCtrl.push(InboxPage);
   }
 
 }

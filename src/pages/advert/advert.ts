@@ -7,6 +7,8 @@ import {SellBookPage} from '../sellbook/sellbook';
 import {HomePage} from '../home/home';
 import {LoginPage} from '../login/login';
 import {AngularFirestore} from 'angularfire2/firestore';
+import {MessagePage} from '../message/message';
+import {InboxPage} from "../inbox/inbox";
 
 @IonicPage()
 @Component({
@@ -34,6 +36,12 @@ export class AdvertPage {
     });
   }
 
+  isSeller(): boolean {
+    const uid = this.af.app.auth().currentUser.uid;
+    if (uid === undefined) return true;
+    return this.advert.uid === uid;
+  }
+
   doLogout() {
     this.af.app.auth().signOut()
       .then(() => {
@@ -47,5 +55,13 @@ export class AdvertPage {
 
   goHome() {
     this.navCtrl.push(HomePage);
+  }
+
+  viewInbox() {
+    this.navCtrl.push(InboxPage);
+  }
+
+  contactSeller(uid: string) {
+    this.navCtrl.push(MessagePage, {recipientId: uid, isChatId: false});
   }
 }

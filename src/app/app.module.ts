@@ -21,6 +21,8 @@ import {AdvertPageModule} from '../pages/advert/advert.module';
 import {BookDetailsProvider} from '../providers/book-details-provider';
 import {HomePageModule} from '../pages/home/home.module';
 import {PipesModule} from '../pipes/pipes.module';
+import {InboxPageModule} from "../pages/inbox/inbox.module";
+import {MessagePageModule} from "../pages/message/message.module";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {PipesModule} from '../pipes/pipes.module';
     LoginPageModule,
     SellBookPageModule,
     AdvertPageModule,
-    HomePageModule
+    HomePageModule,
+    InboxPageModule,
+    MessagePageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

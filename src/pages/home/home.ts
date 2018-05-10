@@ -6,6 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import {AdvertPage} from '../advert/advert';
 import {SellBookPage} from '../sellbook/sellbook';
 import {LoginPage} from '../login/login';
+import {InboxPage} from "../inbox/inbox";
 
 @Component({
   selector: 'page-home',
@@ -44,5 +45,9 @@ export class HomePage {
 
   viewSellBook() {
     this.navCtrl.push(SellBookPage);
+  }
+
+  viewInbox() {
+    this.navCtrl.push(InboxPage);
   }
 }

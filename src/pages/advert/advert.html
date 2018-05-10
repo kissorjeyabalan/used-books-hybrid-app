@@ -8,6 +8,9 @@
         <ion-icon name="home"></ion-icon>
         Hjem
       </button>
+      <button ion-button icon-only (click)="viewInbox()">
+      <ion-icon name="mail"></ion-icon>
+      </button>
       <button ion-button icon-start (click)="viewSellBook()">
         <ion-icon name="book"></ion-icon>
         Selg bok
@@ -27,6 +30,11 @@
       <p>Nær: {{advert.location}}</p>
     </ion-item>
     <img *ngIf="advert.imgUrl != ''" [src]="advert.imgUrl"/>
+    <ion-row *ngIf="!isSeller()">
+      <ion-col>
+        <button block ion-button (click)="contactSeller(advert.uid)">Kontakt selger</button>
+      </ion-col>
+    </ion-row>
     <ion-card-content *ngIf="bookDetail != undefined">
       <p><strong>Tittel: </strong>{{bookDetail.title}}</p>
       <p><strong>Author(s): </strong>{{bookDetail.authors}}</p>

@@ -1,6 +1,29 @@
-<ion-content>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Chat
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-start (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+        Hjem
+      </button>
+      <button ion-button icon-only (click)="viewInbox()">
+        <ion-icon name="mail"></ion-icon>
+      </button>
+      <button ion-button icon-start (click)="viewSellBook()">
+        <ion-icon name="book"></ion-icon>
+        Selg bok
+      </button>
+      <button ion-button icon-only (click)="doLogout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content #content>
   <ion-grid>
-    <ion-row *ngFor="let message of messages | async">
+    <ion-row *ngFor="let message of messages | async" (change)="scrollToBottom()">
       <ion-label fixed>{{message.username}}</ion-label>
       <p>{{message.content}}</p>
     </ion-row>
@@ -16,7 +39,7 @@
         </ion-item>
       </ion-col>
       <ion-col col-2>
-        <button ion-button icon-only icon-start class="center" (click)="sendMessage()">
+        <button ion-button icon-only (click)="sendMessage()">
           <ion-icon name="send"></ion-icon>
         </button>
       </ion-col>
