@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Selg bok
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-start (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+        Hjem
+      </button>
+      <button ion-button icon-start (click)="viewSellBook()">
+        <ion-icon name="book"></ion-icon>
+        Selg bok
+      </button>
+      <button ion-button icon-only (click)="doLogout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      <h1>{{advert.title}}</h1>
+      <p>Solgt av {{advert.seller | stripEmail}}</p>
+      <p>Pris: {{advert.book.price | currency:'NOK'}}</p>
+      <p>Nær: {{advert.location}}</p>
+    </ion-item>
+    <img *ngIf="advert.imgUrl != ''" [src]="advert.imgUrl"/>
+    <ion-card-content *ngIf="bookDetail != undefined">
+      <p><strong>Tittel: </strong>{{bookDetail.title}}</p>
+      <p><strong>Author(s): </strong>{{bookDetail.authors}}</p>
+      <p><strong>ISBN: </strong>{{advert.book.isbn}}</p>
+      <p><strong>Publisher: </strong>{{bookDetail.publisher}}</p>
+      <p><strong>Published: </strong>{{bookDetail.publishedDate}}</p>
+      <p><strong>Pages: </strong>{{bookDetail.pageCount}}</p>
+      <p><strong>Language: </strong>{{bookDetail.language}}</p>
+      <div [innerHTML]="bookDetail.description"></div>
+    </ion-card-content>
+    <ion-card-content *ngIf="bookDetail == undefined">
+      <p>ISBN som selger har oppgitt er ugyldig.</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

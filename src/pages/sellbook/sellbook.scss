@@ -1,0 +1,32 @@
+page-sellbook {
+  .previewImage {
+    height: 250px;
+  }
+
+  .center {
+    margin: auto;
+  }
+
+  ion-card {
+    display: block;
+    vertical-align: middle;
+  }
+
+  ion-content {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background: url('../assets/imgs/background.jpeg') fixed;
+  }
+
+  ion-textarea {
+    height: 50px;
+  }
+
+  #description {
+    height: 100px;
+  }
+
+  input[type=number]:before {
+    content: "NOK";
+  }
+}

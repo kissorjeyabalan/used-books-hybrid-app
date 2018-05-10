@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let message of messages | async">
+      <ion-label fixed>{{message.username}}</ion-label>
+      <p>{{message.content}}</p>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col col-10>
+        <ion-item>
+          <ion-label fixed>Melding:</ion-label>
+          <ion-input [(ngModel)]="msgContent" placeholder="Melding..."></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button icon-only icon-start class="center" (click)="sendMessage()">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

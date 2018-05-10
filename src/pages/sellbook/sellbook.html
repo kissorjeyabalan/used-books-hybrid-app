@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Selg bok
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-start (click)="goHome()">
+        <ion-icon name="home"></ion-icon>
+        Hjem
+      </button>
+      <button ion-button icon-only (click)="doLogout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img *ngIf="!previewImage" class="previewImage center" src="assets/imgs/ingen-bilde.png"/>
+    <img *ngIf="previewImage" class="previewImage center" [src]="'data:image/jpeg;base64,' + previewImage"/>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <button ion-button icon-start class="center" (click)="takePicture()">
+            <ion-icon name="camera"></ion-icon>
+            Ta bilde
+          </button>
+        </ion-row>
+        <ion-row>
+          <ion-label color="primary" fixed>Tittel</ion-label>
+          <ion-input [(ngModel)]="title" placeholder="Dårlig vedlikeholt bok" tabindex="1"></ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-label color="primary" fixed>ISBN</ion-label>
+          <ion-input [textMask]="{mask: mask, showMask: false, guide: false}" [(ngModel)]="book.isbn" type="tel" tabindex="2" placeholder="978-03-21573-51-3"></ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-label color="primary" fixed>Pris</ion-label>
+          <ion-input [(ngModel)]="book.price" placeholder="NOK 149.50" type="number" tabindex="4"></ion-input>
+        </ion-row>
+        <ion-row>
+          <button block ion-button (click)="sellBook()">Selg bok!</button>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

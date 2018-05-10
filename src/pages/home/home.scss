@@ -1,3 +1,51 @@
 page-home {
+  ion-content {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background: url('../assets/imgs/background.jpeg') fixed;
+  }
 
+  .adverts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+  }
+
+  ion-card {
+    position: relative;
+    text-align: center;
+    text-shadow: -1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000
+  }
+
+  .ad-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .ad-price {
+    font-size: 1.5em;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: #fff;
+  }
+
+  .ad-seller {
+    font-size: 1em;
+    position: absolute;
+    top: 60%;
+    width: 100%;
+    color: #f4f4f4;
+  }
+
+  img {
+    height: 250px;
+    opacity: 0.4;
+  }
 }

@@ -1,0 +1,37 @@
+<ion-content class="no-scroll" padding>
+  <div id="container">
+    <h1 id="login-title">Høyskolen Kristiania<br>Bruktbøker</h1>
+    <form id="login-form" #loginForm="ngForm">
+      <ion-row *ngIf="formError">
+        <ion-col>
+          <div class="error">{{formError}}</div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label fixed>Brukernavn</ion-label>
+              <ion-input type="text" name="email" [(ngModel)]="user.name" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label fixed>Passord</ion-label>
+              <ion-input type="password" name="password" [(ngModel)]="user.password" required></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button block ion-button type="submit" (click)="login()" [disabled]="!loginForm.form.valid">Logg inn</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button block ion-button type="submit" (click)="register()" [disabled]="!loginForm.form.valid">Registrer
+          </button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>
